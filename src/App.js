@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import {Layout, Menu} from "antd";
+import {Content, Footer, Header} from "antd/es/layout/layout";
+import {Link, Outlet} from 'react-router-dom';
+import Sider from "antd/es/layout/Sider";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Layout style={{minHeight: 1000}}>
+                <Header>
+                    <Menu
+                        theme="dark"
+                        mode="horizontal"
+                        defaultSelectedKeys={['home']}
+                    >
+                        <Menu.Item key='home'>
+                            <Link to={'/home'}>Home</Link>
+                        </Menu.Item>
+                        <Menu.Item key='base'>
+                            <Link to={'/base'}>Base</Link>
+                        </Menu.Item>
+                        <Menu.Item key='performers'>
+                            <Link to={'/performers'}>Performers</Link>
+                        </Menu.Item>
+                    </Menu>
+                </Header>
+                <Layout>
+                    <Layout>
+                        <Sider>Sider</Sider>
+
+                        <Content>
+                            <Outlet/>
+                        </Content>
+                    </Layout>
+                </Layout>
+                <Footer style={{textAlign: "center"}}>Rent Music Studio App ©2022</Footer>
+            </Layout>
+        </>
+    );
 }
 
 export default App;
