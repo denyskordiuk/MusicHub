@@ -1,4 +1,4 @@
-import {Layout, Menu} from "antd";
+import {Button, Layout, Menu} from "antd";
 import {Content, Footer, Header} from "antd/es/layout/layout";
 import {Link, Outlet} from 'react-router-dom';
 import Sider from "antd/es/layout/Sider";
@@ -23,12 +23,27 @@ function App() {
                         <Menu.Item key='performers'>
                             <Link to={'/performers'}>Performers</Link>
                         </Menu.Item>
+                        <Menu.Item key={'faq'}>
+                            <Link to={'/faq'}>FAQ</Link>
+                        </Menu.Item>
+                        {
+                            '1' ?
+                                <>
+                                    <Menu.Item key={'signIn'}>
+                                        <Link to={'signIn'}>Sign In</Link>
+                                    </Menu.Item>
+                                    <Menu.Item key={'signUp'}>
+                                        <Link to={'signUp'}>Sign Up</Link>
+                                    </Menu.Item>
+                                </> :
+                                <Menu.Item key={'ligined'}>
+                                    <Button>Logined User</Button>
+                                </Menu.Item>
+                        }
                     </Menu>
                 </Header>
                 <Layout>
                     <Layout>
-                        <Sider>Sider</Sider>
-
                         <Content>
                             <Outlet/>
                         </Content>

@@ -1,7 +1,7 @@
 const Base = () => {
     return (
         <>
-            Base 
+            Base
         </>
     )
 }
